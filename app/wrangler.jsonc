@@ -1,0 +1,71 @@
+{
+  "name": "job-analyzer",
+  "main": "./src/server/worker.ts",
+  "compatibility_date": "2025-09-02",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // ──────────────────────────────────────
+  // D1 Database
+  // ──────────────────────────────────────
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "job-analyzer-db",
+      "database_id": "3f58eb0a-8a1f-4b1f-a20d-5045bdbc0235",
+      "migrations_dir": "drizzle/migrations"
+    }
+  ],
+
+  // ──────────────────────────────────────
+  // R2 Object Storage (PDFs)
+  // ──────────────────────────────────────
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "job-analyzer-documents"
+    }
+  ],
+
+  // ──────────────────────────────────────
+  // KV Namespace (URL scrape cache)
+  // ──────────────────────────────────────
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "07de8044b8154750a0cfc2e5eaa60f2c"
+    }
+  ],
+
+  // ──────────────────────────────────────
+  // AI (Workers AI)
+  // ──────────────────────────────────────
+  "ai": {
+    "binding": "AI"
+  },
+
+  // ──────────────────────────────────────
+  // Browser Rendering API
+  // ──────────────────────────────────────
+  "browser": {
+    "binding": "BROWSER"
+  },
+
+  // ──────────────────────────────────────
+  // Observability (Workers Logs)
+  // ──────────────────────────────────────
+  "observability": {
+    "enabled": true
+  },
+
+  // ──────────────────────────────────────
+  // Environment Variables
+  // ──────────────────────────────────────
+  // No API keys needed — using Cloudflare Workers AI (Llama 3.3 70B)
+
+  // ──────────────────────────────────────
+  // Cron Triggers (every 6 hours)
+  // ──────────────────────────────────────
+  "triggers": {
+    "crons": ["0 */6 * * *"]
+  }
+}

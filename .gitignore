@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production
+dist/
+build/
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.wrangler/
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dev
+.wrangler/
+dist/
+.turbo/
+
+# Generated files (these change often)
+src/routeTree.gen.ts
+.env*.local
+
+# Lock files in workspaces are OK (pnpm-lock.yaml committed)
+# but git them explicitly
+
+# Cloudflare
+.wrangler/
+wrangler.toml.bak
